@@ -120,11 +120,12 @@
     }
   }
 
-  function resetAll() {
+  async function resetAll() {
     const confirmed = confirm("Are you sure you want to reset all content back to factory defaults?\n\nThis will restore the original EWB-MJCET website data.");
     if (!confirmed) return;
     try {
       content = window.EWBContent.reset(base);
+      await window.EWBContent.saveToCloud(content);
       updateSaveButtons(false);
       updateSyncStatus("Reset to Defaults ✓", true);
       showToast("✓ All content has been reset to defaults!");

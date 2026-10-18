@@ -148,12 +148,16 @@
       localStorage.setItem(PULSE_KEY, JSON.stringify({ rev: fallback._rev, type: "reset" }));
     } catch (e) {}
 
-    // Reset cloud document if authenticated
-    if (typeof firebase !== "undefined" && firebase.firestore && firebase.auth && firebase.auth().currentUser) {
+    // Reset cloud document in Cloud Firestore
+    if (typeof firebase !== "undefined" && firebase.firestore) {
       try {
         const db = firebase.firestore();
-        db.collection(FIRESTORE_COLLECTION).doc(FIRESTORE_DOC).set(fallback);
-      } catch (e) {}
+        db.collection(FIRESTORE_COLLECTION).doc(FIRESTORE_DOC).set(fallback, { merge: false })
+          .then(() => console.log("[EWB Sync] Cloud database reset to factory defaults."))
+          .catch((err) => console.warn("[EWB Sync] Cloud reset notice:", err.message));
+      } catch (e) {
+        console.warn("[EWB Sync] Exception during cloud reset:", e);
+      }
     }
 
     return fallback;
