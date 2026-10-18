@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Engineers Without Borders MJCET - engineering change and building communities through sustainable student-led projects."
+    />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>EWB MJCET | Engineering Change. Building Communities.</title>
+    <link rel="icon" href="public/assets/ewb-logo.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css?v=2.5.0" />
+  </head>
+  <body>
+    <!-- ── Intro Overlay ── -->
+    <div id="intro-overlay" aria-hidden="true">
+      <video id="intro-video" muted autoplay playsinline preload="auto">
+        <source src="public/assets/Remove_flag_chakra_from_clip_20261012234903_gwr_video_mvp.mp4" type="video/mp4">
+      </video>
+      <div class="intro-veil"></div>
+      <div class="intro-content">
+        <img class="intro-logo" src="public/assets/EWB Official Logo 1.png" alt="" />
+        <div class="intro-title">EWB-MJCET</div>
+        <div class="intro-slogan">Engineering Change. Building Communities.</div>
+      </div>
+    </div>
+    <script>
+      if (sessionStorage.getItem('ewb-intro-seen') || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.getElementById('intro-overlay').remove();
+      } else {
+        document.body.classList.add('intro-playing', 'hero-revealing');
+      }
+    </script>
+
+    <div class="cursor-aura" aria-hidden="true"></div>
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="bg-tricolor-atmosphere" aria-hidden="true"></div>
+
+    <!-- ── Custom Gear Cursor (Desktop Fine Pointer Only) ── -->
+    <div class="custom-gear-cursor" aria-hidden="true">
+      <div class="gear-cursor-wrapper">
+        <svg class="gear-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="gear-outer" fill="#075A3B" fill-rule="evenodd" d="M 14.04,4.97 L 14.49,1.08 L 17.51,1.08 L 17.96,4.97 L 20.90,5.93 L 23.55,3.04 L 25.99,4.81 L 24.07,8.23 L 25.88,10.73 L 29.73,9.96 L 30.66,12.82 L 27.09,14.46 L 27.09,17.54 L 30.66,19.18 L 29.73,22.04 L 25.88,21.27 L 24.07,23.77 L 25.99,27.19 L 23.55,28.96 L 20.90,26.07 L 17.96,27.03 L 17.51,30.92 L 14.49,30.92 L 14.04,27.03 L 11.10,26.07 L 8.45,28.96 L 6.01,27.19 L 7.93,23.77 L 6.12,21.27 L 2.27,22.04 L 1.34,19.18 L 4.91,17.54 L 4.91,14.46 L 1.34,12.82 L 2.27,9.96 L 6.12,10.73 L 7.93,8.23 L 6.01,4.81 L 8.45,3.04 L 11.10,5.93 Z M 16,8.5 A 7.5,7.5 0 1,0 16.01,8.5 Z"/>
+          <circle class="gear-dot" cx="16" cy="16" r="2.2" fill="#39E66B"/>
+          <circle class="gear-center" cx="16" cy="16" r="7.6" fill="#39E66B"/>
+        </svg>
+        <div class="gear-link-badge">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="EWB MJCET home">
+        <img class="brand-logo" src="public/assets/EWB Official Logo.png" alt="EWB Logo" />
+        <span class="brand-copy">
+          <strong>EWB MJCET</strong>
+          <small>Engineers Without Borders</small>
+        </span>
+      </a>
+      <button class="menu-button" data-menu-button aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" data-nav aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#impact">Impact</a>
+        <a href="#events">Events</a>
+        <a href="#reports">Reports</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#join">Join EWB</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-rings" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Muffakham Jah College of Engineering & Technology</span>
+          <h1>Engineers Without Borders <span>MJCET</span></h1>
+          <p class="hero-line">Engineering Change. Building Communities.</p>
+          <p class="hero-text">
+            Student engineers building sustainable solutions for schools, communities, and the
+            environment through real-world projects, field work, and responsible technology.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore Projects</a>
+            <a class="btn btn-secondary" href="#join">Join EWB</a>
+            <a class="btn btn-ghost" href="#impact">View Impact</a>
+          </div>
+          <div class="hero-pills" aria-label="EWB MJCET core strengths">
+            <span>Field surveys</span>
+            <span>Clean water</span>
+            <span>E-learning labs</span>
+            <span>Sustainable infrastructure</span>
+          </div>
+        </div>
+        <div class="hero-visual reveal delay-1">
+          <div class="identity-card glass-card">
+            <img src="public/assets/ewb-logo.png" alt="Engineers Without Borders India MJCET logo" />
+          </div>
+          <figure class="impact-photo main-photo">
+            <img src="public/assets/report-images/2014-15-updated-01.png" alt="EWB MJCET student volunteers at a community event" />
+            <figcaption>Student volunteers in action</figcaption>
+          </figure>
+          <figure class="impact-photo side-photo">
+            <img src="public/assets/report-images/2017-activities-05.jpeg" alt="EWB MJCET students during field activity" />
+            <figcaption>Hands-on field work</figcaption>
+          </figure>
+          <div class="floating-metric metric-water"><strong>RO</strong><span>Clean water systems</span></div>
+          <div class="floating-metric metric-energy"><strong>28+</strong><span>E-learning centers</span></div>
+          <div class="coordinate-card"><span>HYD / TELANGANA</span><b>Community engineering map</b></div>
+        </div>
+      </section>
+
+      <section id="impact" class="impact-strip reveal" aria-label="EWB-MJCET Impact Statistics">
+        <!-- Botanical Corner Leaves (Left) -->
+        <div class="impact-leaves impact-leaves-left" aria-hidden="true">
+          <svg viewBox="0 0 170 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="leafGradL1" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#052c1c" />
+                <stop offset="60%" stop-color="#0f5c38" />
+                <stop offset="100%" stop-color="#1ea865" />
+              </linearGradient>
+              <linearGradient id="leafGradL2" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#031f13" />
+                <stop offset="50%" stop-color="#0d472c" />
+                <stop offset="100%" stop-color="#15824c" />
+              </linearGradient>
+              <linearGradient id="leafGradL3" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#083823" />
+                <stop offset="70%" stop-color="#1fa366" />
+                <stop offset="100%" stop-color="#46e685" />
+              </linearGradient>
+            </defs>
+            <!-- Leaf 1 (Back lower) -->
+            <path d="M-10 140 C10 95 45 65 95 50 C 75 85 50 120 -10 140 Z" fill="url(#leafGradL2)" opacity="0.85"/>
+            <path d="M-10 140 C30 100 65 75 95 50" stroke="#39e66b" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+            <!-- Leaf 2 (Main middle) -->
+            <path d="M-5 110 C15 60 55 25 115 10 C 90 55 55 95 -5 110 Z" fill="url(#leafGradL1)"/>
+            <path d="M-5 110 C40 68 75 40 115 10" stroke="#5eff9b" stroke-width="1.4" stroke-linecap="round" opacity="0.45"/>
+            <path d="M25 82 C40 78 55 70 70 60" stroke="#5eff9b" stroke-width="0.8" opacity="0.3"/>
+            <path d="M45 62 C60 58 75 48 90 38" stroke="#5eff9b" stroke-width="0.8" opacity="0.3"/>
+            <!-- Leaf 3 (Small front accent) -->
+            <path d="M15 145 C35 115 75 100 130 95 C 105 122 70 140 15 145 Z" fill="url(#leafGradL3)" opacity="0.9"/>
+            <path d="M15 145 C55 125 90 112 130 95" stroke="#7effaf" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+            <!-- Leaf 4 (Tiny top sprout) -->
+            <path d="M-15 70 C-5 35 25 10 65 -5 C 50 25 25 55 -15 70 Z" fill="url(#leafGradL2)" opacity="0.6"/>
+          </svg>
+        </div>
+
+        <!-- Botanical Corner Leaves (Right) -->
+        <div class="impact-leaves impact-leaves-right" aria-hidden="true">
+          <svg viewBox="0 0 170 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="leafGradR1" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#063321" />
+                <stop offset="55%" stop-color="#116b41" />
+                <stop offset="100%" stop-color="#22b86f" />
+              </linearGradient>
+              <linearGradient id="leafGradR2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#042316" />
+                <stop offset="50%" stop-color="#0d4a2d" />
+                <stop offset="100%" stop-color="#168b52" />
+              </linearGradient>
+              <linearGradient id="leafGradR3" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0a3d27" />
+                <stop offset="65%" stop-color="#23b06e" />
+                <stop offset="100%" stop-color="#54f294" />
+              </linearGradient>
+            </defs>
+            <!-- Leaf 1 (Back upper) -->
+            <path d="M180 -5 C160 40 125 70 75 85 C 95 50 120 15 180 -5 Z" fill="url(#leafGradR2)" opacity="0.85"/>
+            <path d="M180 -5 C140 35 105 60 75 85" stroke="#39e66b" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+            <!-- Leaf 2 (Main middle) -->
+            <path d="M175 25 C155 75 115 110 55 125 C 80 80 115 40 175 25 Z" fill="url(#leafGradR1)"/>
+            <path d="M175 25 C130 67 95 95 55 125" stroke="#5eff9b" stroke-width="1.4" stroke-linecap="round" opacity="0.45"/>
+            <path d="M145 53 C130 57 115 65 100 75" stroke="#5eff9b" stroke-width="0.8" opacity="0.3"/>
+            <path d="M125 73 C110 77 95 87 80 97" stroke="#5eff9b" stroke-width="0.8" opacity="0.3"/>
+            <!-- Leaf 3 (Small lower accent) -->
+            <path d="M155 -10 C135 20 95 35 40 40 C 65 13 100 -5 155 -10 Z" fill="url(#leafGradR3)" opacity="0.9"/>
+            <path d="M155 -10 C115 10 80 23 40 40" stroke="#7effaf" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+            <!-- Leaf 4 (Tiny side leaf) -->
+            <path d="M185 65 C175 100 145 125 105 140 C 120 110 145 80 185 65 Z" fill="url(#leafGradR2)" opacity="0.6"/>
+          </svg>
+        </div>
+
+        <!-- Elegant Flowing Light Arcs -->
+        <div class="impact-glow-arcs" aria-hidden="true">
+          <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="arcGradMain" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#39e66b" stop-opacity="0" />
+                <stop offset="20%" stop-color="#39e66b" stop-opacity="0.3" />
+                <stop offset="50%" stop-color="#00ffb7" stop-opacity="0.55" />
+                <stop offset="80%" stop-color="#39e66b" stop-opacity="0.3" />
+                <stop offset="100%" stop-color="#39e66b" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="arcGradTop" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0d93a7" stop-opacity="0" />
+                <stop offset="30%" stop-color="#2ee68f" stop-opacity="0.25" />
+                <stop offset="70%" stop-color="#2ee68f" stop-opacity="0.25" />
+                <stop offset="100%" stop-color="#0d93a7" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <path d="M 40 126 Q 360 80, 680 122 T 1160 98" fill="none" stroke="url(#arcGradMain)" stroke-width="2" />
+            <path d="M 80 14 Q 580 42, 1120 12" fill="none" stroke="url(#arcGradTop)" stroke-width="1.4" />
+          </svg>
+        </div>
+
+        <!-- Stat 1: Years of impact -->
+        <article data-counter="20" class="impact-item" tabindex="0" role="group" aria-label="20 plus Years of impact">
+          <div class="impact-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18" stroke-width="1.4" opacity="0.4" />
+              <path d="M7 21c0-5.5 3.5-10 8-11" />
+              <path d="M15 10c0-4.4 3.6-7 7-7-0.2 4-3 7-7 7z" fill="rgba(255,255,255,0.2)" />
+              <path d="M11.5 13.5c-3-0.5-5.5-2.8-5.5-5.5 2.8 0 5 2.2 5.5 5.5z" fill="rgba(255,255,255,0.2)" />
+              <circle cx="7" cy="21" r="1.5" fill="#ffffff" stroke="none" />
+            </svg>
+          </div>
+          <div class="impact-details">
+            <strong class="impact-num">0</strong>
+            <span class="impact-label">Years of impact</span>
+            <div class="impact-accent-line" aria-hidden="true"></div>
+          </div>
+        </article>
+
+        <!-- Stat 2: Student members -->
+        <article data-counter="100" class="impact-item" tabindex="0" role="group" aria-label="100 plus Student members">
+          <div class="impact-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Center user -->
+              <circle cx="12" cy="7" r="3.2" />
+              <path d="M6.5 20a5.5 5.5 0 0 1 11 0" />
+              <!-- Left user -->
+              <circle cx="5.5" cy="9.5" r="2.2" />
+              <path d="M1.5 20a4 4 0 0 1 4-3.5" />
+              <!-- Right user -->
+              <circle cx="18.5" cy="9.5" r="2.2" />
+              <path d="M18.5 16.5a4 4 0 0 1 4 3.5" />
+            </svg>
+          </div>
+          <div class="impact-details">
+            <strong class="impact-num">0</strong>
+            <span class="impact-label">Student members</span>
+            <div class="impact-accent-line" aria-hidden="true"></div>
+          </div>
+        </article>
+
+        <!-- Stat 3: Activities & projects -->
+        <article data-counter="50" class="impact-item" tabindex="0" role="group" aria-label="50 plus Activities and projects">
+          <div class="impact-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <line x1="10" y1="9" x2="8" y2="9" />
+            </svg>
+          </div>
+          <div class="impact-details">
+            <strong class="impact-num">0</strong>
+            <span class="impact-label">Activities & projects</span>
+            <div class="impact-accent-line" aria-hidden="true"></div>
+          </div>
+        </article>
+
+        <!-- Stat 4: E-learning centers -->
+        <article data-counter="28" class="impact-item" tabindex="0" role="group" aria-label="28 plus E-learning centers">
+          <div class="impact-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3.5" y="4" width="17" height="11" rx="2" />
+              <path d="M2 19h20c-1-1.2-2.5-1.5-4-1.5H6c-1.5 0-3 0.3-4 1.5z" fill="rgba(255,255,255,0.2)" />
+              <line x1="10" y1="16" x2="14" y2="16" stroke-width="1.2" opacity="0.6" />
+            </svg>
+          </div>
+          <div class="impact-details">
+            <strong class="impact-num">0</strong>
+            <span class="impact-label">E-learning centers</span>
+            <div class="impact-accent-line" aria-hidden="true"></div>
+          </div>
+        </article>
+
+        <!-- Stat 5: Households surveyed -->
+        <article data-counter="500" class="impact-item" tabindex="0" role="group" aria-label="500 plus Households surveyed">
+          <div class="impact-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9.5z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </div>
+          <div class="impact-details">
+            <strong class="impact-num">0</strong>
+            <span class="impact-label">Households surveyed</span>
+            <div class="impact-accent-line" aria-hidden="true"></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="about" class="section shell about-section">
+        <div class="section-intro reveal">
+          <span class="eyebrow">Chapter Identity</span>
+          <h2>A student engineering chapter built for practical social impact.</h2>
+          <p>
+            EWB-MJCET works under the Engineers Without Borders movement to use technical
+            knowledge, student leadership, and community partnerships for sustainable development.
+          </p>
+        </div>
+        <div class="about-grid">
+          <article class="about-card reveal">
+            <span class="card-index">01</span>
+            <h3>Engineering for Social Good</h3>
+            <p>The chapter turns classroom learning into field implementation across water, sanitation, education, clean energy, environment, and rural development.</p>
+          </article>
+          <article class="about-card reveal">
+            <span class="card-index">02</span>
+            <h3>Documented Work</h3>
+            <p>Annual reports, project audits, needs assessments, and school visits give the chapter a real evidence base for its website.</p>
+          </article>
+          <article class="about-card reveal">
+            <span class="card-index">03</span>
+            <h3>Community + Technology</h3>
+            <p>From RO plants and drainage systems to computer labs and clean-tech talks, EWB feels like an impact lab inside an engineering college.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section focus-section">
+        <div class="shell">
+          <div class="section-intro light reveal">
+            <span class="eyebrow">Focus Areas</span>
+            <h2>Six domains where engineering becomes useful to people.</h2>
+          </div>
+          <div class="focus-grid" data-focus></div>
+        </div>
+      </section>
+
+      <section class="section shell case-study">
+        <div class="case-media reveal">
+          <img src="public/assets/report-images/2017-activities-06.jpeg" alt="Erramanzil school project site" />
+          <div class="case-tag">Featured Case Study</div>
+        </div>
+        <div class="case-copy reveal delay-1">
+          <span class="eyebrow">Erramanzil Government High School</span>
+          <h2>A flagship school infrastructure transformation.</h2>
+          <p>
+            EWB-MJCET helped improve school infrastructure through a complete engineering
+            intervention: clean water, drainage, playground development, wash areas, plantation,
+            drip irrigation, compound wall work, plumbing, welding, painting, computer education,
+            and career counselling.
+          </p>
+          <div class="case-timeline">
+            <article><span>01</span><div><h3>Problem Mapping</h3><p>Students and mentors identified gaps in water, sanitation, playground safety, and digital access.</p></div></article>
+            <article><span>02</span><div><h3>Engineering Response</h3><p>Multi-branch teams supported civil, mechanical, plumbing, software, and learning infrastructure work.</p></div></article>
+            <article><span>03</span><div><h3>Outcome</h3><p>Reports show improved attendance, student engagement, English confidence, and computer learning.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section shell projects-section">
+        <div class="section-intro reveal">
+          <span class="eyebrow">Signature Projects</span>
+          <h2>Real problems. Engineered responses. Visible outcomes.</h2>
+          <p>The project system is designed like a premium portfolio: each card shows what problem was found, what EWB built or studied, and what changed.</p>
+        </div>
+        <div class="project-grid" data-projects></div>
+      </section>
+
+      <section id="events" class="section shell events-section">
+        <div class="section-intro reveal">
+          <span class="eyebrow">Latest Activities</span>
+          <h2>Active programs across environment, education, clean tech, and audits.</h2>
+        </div>
+        <div class="event-rail" data-events></div>
+      </section>
+
+      <section id="reports" class="section reports-section">
+        <div class="shell">
+          <div class="section-intro reveal">
+            <span class="eyebrow">Documented Legacy</span>
+            <h2>A timeline that makes the chapter feel established from the first visit.</h2>
+            <p>The EWB reports become a credibility layer: old projects, annual reports, surveys, awards, school work, and recent 2025-26 activity.</p>
+          </div>
+          <div class="report-timeline" data-reports></div>
+        </div>
+      </section>
+
+      <section id="team" class="section shell team-section">
+        <div class="section-intro reveal">
+          <span class="eyebrow">Leadership & Team</span>
+          <h2>Faculty guidance, student ownership, and project-based roles.</h2>
+        </div>
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <img src="public/assets/faculty-ishrat-meera.jpg" alt="Dr. Ishrat Meera Mirzana, Director, EWB India" style="object-fit: cover; object-position: center top;" />
+            <span>Director, EWB India</span>
+            <h3>Dr. Ishrat Meera Mirzana</h3>
+            <p>Faculty mentorship, institutional continuity, and sustainable development orientation.</p>
+          </article>
+          <article class="team-card reveal delay-1">
+            <img src="public/assets/faculty-lakshmi-kumari.jpg" alt="Mrs. NBV Lakshmi Kumari, Faculty Coordinator" style="object-fit: cover; object-position: center top;" />
+            <span>Faculty Coordinator</span>
+            <h3>Mrs. NBV Lakshmi Kumari</h3>
+            <p>Guidance across activity coordination, E-learning visits, and chapter reporting.</p>
+          </article>
+          <article class="team-card cabinet-card reveal delay-2">
+            <span>Student Governing Body</span>
+            <h3>Project-led Cabinet</h3>
+            <p>President, Vice President, Secretary, Joint Secretary, Treasurer, project leads, documentation, media, and field teams.</p>
+            <div class="role-pills"><b>President</b><b>Secretary</b><b>Project Leads</b><b>Documentation</b></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="join" class="join-section shell reveal">
+        <div>
+          <span class="eyebrow">Recruitment</span>
+          <h2>Join a project team, not just a club.</h2>
+          <p>EWB needs students who can survey, design, document, code, coordinate, communicate, and turn rough community problems into practical engineering action.</p>
+          <a class="btn btn-primary" href="#contact">Become a Member</a>
+        </div>
+        <div class="join-grid" data-join></div>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div class="footer-grid shell">
+        <div>
+          <a class="brand footer-brand" href="#home">
+            <img class="brand-logo" src="public/assets/EWB Official Logo.png" alt="EWB Logo" />
+            <span class="brand-copy"><strong>EWB MJCET</strong><small>Engineering Change. Building Communities.</small></span>
+          </a>
+          <p>Engineers Without Borders MJCET at Muffakham Jah College of Engineering & Technology, Banjara Hills, Hyderabad.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#events">Events</a>
+          <a href="#reports">Reports</a>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <a href="mailto:ewbmjcet@example.com">ewbmjcet@example.com</a>
+          <span>MJCET, Road No. 3, Banjara Hills</span>
+          <span>Hyderabad - 500034</span>
+        </div>
+        <div class="footer-map">
+          <span>Campus Base</span>
+          <strong>MJCET, Hyderabad</strong>
+          <p>Map and official contact details can be connected later.</p>
+        </div>
+        <div class="footer-bottom">© 2026 EWB MJCET. Front-end prototype for review.</div>
+      </div>
+    </footer>
+
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js?v=2.6.0"></script>
+    <script src="content-defaults.js?v=2.6.0"></script>
+    <script src="content-store.js?v=2.6.0"></script>
+    <script src="script.js?v=2.6.0"></script>
+  </body>
+</html>

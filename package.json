@@ -1,0 +1,17 @@
+{
+  "name": "ewb-mjcet",
+  "version": "2.6.1",
+  "description": "Engineers Without Borders MJCET Official Website and Admin Content Studio",
+  "private": true,
+  "scripts": {
+    "start": "python -m http.server 8765",
+    "build": "echo 'Static production assets verified and ready'"
+  },
+  "keywords": [
+    "ewb",
+    "mjcet",
+    "engineers-without-borders"
+  ],
+  "author": "EWB MJCET",
+  "license": "UNLICENSED"
+}

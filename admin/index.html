@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>EWB MJCET | Admin Portal</title>
+    <link rel="icon" href="../public/assets/ewb-logo.png" type="image/png" />
+    <link rel="stylesheet" href="../styles.css?v=2.6.1" />
+    <link rel="stylesheet" href="admin.css?v=2.6.1" />
+  </head>
+  <body class="admin-body">
+    <div class="cursor-aura" aria-hidden="true"></div>
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="bg-tricolor-atmosphere" aria-hidden="true"></div>
+
+    <div class="custom-gear-cursor" aria-hidden="true">
+      <div class="gear-cursor-wrapper"><svg class="gear-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="gear-outer" fill="#075A3B" fill-rule="evenodd" d="M14.04 4.97 14.49 1.08h3.02l.45 3.89 2.94.96 2.65-2.89 2.44 1.77-1.92 3.42 1.81 2.5 3.85-.77.93 2.86-3.57 1.64v3.08l3.57 1.64-.93 2.86-3.85-.77-1.81 2.5 1.92 3.42-2.44 1.77-2.65-2.89-2.94.96-.45 3.89h-3.02l-.45-3.89-2.94-.96-2.65 2.89-2.44-1.77 1.92-3.42-1.81-2.5-3.85.77-.93-2.86 3.57-1.64v-3.08L1.34 12.82l.93-2.86 3.85.77 1.81-2.5-1.92-3.42 2.44-1.77 2.65 2.89 2.94-.96ZM16 8.5A7.5 7.5 0 1 0 16.01 8.5Z"/><circle class="gear-dot" cx="16" cy="16" r="2.2" fill="#39E66B"/><circle class="gear-center" cx="16" cy="16" r="7.6" fill="#39E66B"/></svg></div>
+    </div>
+
+    <main class="admin-login" data-login-view>
+      <section class="login-card">
+        <img src="../public/assets/EWB Official Logo.png" alt="EWB MJCET" />
+        <span class="eyebrow">EWB MJCET</span>
+        <h1>Admin portal</h1>
+        <p>Manage the content and visual assets that appear on the EWB MJCET website.</p>
+        <form data-login-form>
+          <label for="admin-username-input">Username
+            <input id="admin-username-input" name="username" autocomplete="username" required placeholder="admin or admin@ewbmjcet.org" />
+          </label>
+          <div class="password-field-group">
+            <label for="admin-password-input">Password</label>
+            <div class="password-input-wrapper">
+              <input id="admin-password-input" name="password" type="password" autocomplete="current-password" required placeholder="Enter password" />
+              <button type="button" class="password-toggle-btn" id="password-toggle-btn" aria-label="Show password" title="Toggle password visibility">
+                <svg class="eye-icon eye-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-icon eye-hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+            <label class="show-password-option" for="show-password-checkbox">
+              <input type="checkbox" id="show-password-checkbox" />
+              <span>Show password</span>
+            </label>
+          </div>
+          <button class="btn btn-primary" type="submit">Enter dashboard <span>→</span></button>
+          <p class="login-error" data-login-error aria-live="polite"></p>
+        </form>
+        <div class="demo-note"><b>Admin access</b><span>Username: <code>admin</code> (or <code>admin@ewbmjcet.org</code>) · Password: <code>ewb@mjcet2026</code></span></div>
+      </section>
+    </main>
+
+    <main class="admin-app" data-admin-app hidden>
+      <aside class="admin-sidebar">
+        <a class="admin-brand" href="../" aria-label="Visit EWB MJCET">
+          <img src="../public/assets/EWB Official Logo.png" alt="" />
+          <span>
+            <strong>EWB MJCET</strong>
+            <small>Content Studio v2.0</small>
+          </span>
+        </a>
+        <nav data-admin-nav aria-label="Admin sections">
+          <button class="active" data-section="overview">
+            <span class="nav-icon">📊</span>
+            <span class="nav-label">Overview</span>
+          </button>
+          <button data-section="hero">
+            <span class="nav-icon">✨</span>
+            <span class="nav-label">Hero & Identity</span>
+          </button>
+          <button data-section="about">
+            <span class="nav-icon">📖</span>
+            <span class="nav-label">About & Domains</span>
+            <span class="nav-badge" data-count="focusAreas">6</span>
+          </button>
+          <button data-section="caseStudy">
+            <span class="nav-icon">⭐</span>
+            <span class="nav-label">Case Study</span>
+          </button>
+          <button data-section="projects">
+            <span class="nav-icon">🚀</span>
+            <span class="nav-label">Projects</span>
+            <span class="nav-badge" data-count="projects">6</span>
+          </button>
+          <button data-section="events">
+            <span class="nav-icon">📅</span>
+            <span class="nav-label">Events</span>
+            <span class="nav-badge" data-count="events">6</span>
+          </button>
+          <button data-section="reports">
+            <span class="nav-icon">📜</span>
+            <span class="nav-label">Legacy Reports</span>
+            <span class="nav-badge" data-count="reports">9</span>
+          </button>
+          <button data-section="team">
+            <span class="nav-icon">👥</span>
+            <span class="nav-label">Team & Leaders</span>
+            <span class="nav-badge" data-count="team">3</span>
+          </button>
+          <button data-section="join">
+            <span class="nav-icon">🎯</span>
+            <span class="nav-label">Recruitment</span>
+          </button>
+        </nav>
+        <div class="sidebar-footer">
+          <a class="sidebar-link" href="../" target="_blank" rel="noopener"><span>🌐</span> Open Public Website ↗</a>
+          <button class="sidebar-reset-btn" data-reset-all type="button"><span>🔄</span> Reset to Defaults</button>
+          <button class="quiet-button" data-sign-out type="button">Sign out</button>
+        </div>
+      </aside>
+      <section class="admin-main">
+        <header class="admin-topbar">
+          <div class="topbar-heading">
+            <span class="eyebrow" data-admin-kicker>Content Control</span>
+            <h1 data-admin-title>Website Overview</h1>
+          </div>
+          <div class="topbar-actions">
+            <div class="live-sync-pill" data-live-status title="Changes are automatically broadcast to your open website tab">
+              <span class="pulse-dot"></span>
+              <span data-sync-label>Live Synced</span>
+            </div>
+            <label class="toggle-switch" title="Toggle automatic real-time preview on keystroke">
+              <input type="checkbox" id="auto-sync-toggle" checked />
+              <span class="toggle-slider"></span>
+              <span class="toggle-text">Real-Time Sync</span>
+            </label>
+            <a class="btn btn-secondary topbar-btn" href="../" target="_blank" rel="noopener" title="Preview changes on website">
+              View Site ↗
+            </a>
+            <button class="btn btn-primary topbar-btn" data-save-topbar type="button" title="Save changes (Ctrl+S)">
+              <span class="save-icon">💾</span>
+              <span data-save-btn-label>Save Changes</span>
+            </button>
+          </div>
+        </header>
+        <div class="editor-area" data-editor-area></div>
+      </section>
+    </main>
+
+    <!-- Floating Feedback Toast -->
+    <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
+
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="../firebase-config.js?v=2.6.1"></script>
+    <script src="../content-defaults.js?v=2.6.1"></script>
+    <script src="../content-store.js?v=2.6.1"></script>
+    <script src="admin.js?v=2.6.1"></script>
+  </body>
+</html>
