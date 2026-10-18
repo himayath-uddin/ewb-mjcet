@@ -781,7 +781,7 @@
               return;
             }
             if (err) {
-              err.textContent = authError.message || "Invalid credentials. Use admin / ewb@mjcet2026";
+              err.textContent = "Invalid username or password. Please try again.";
             }
           } finally {
             if (submitBtn) {
@@ -795,7 +795,7 @@
             sessionStorage.setItem(LOGIN_KEY, "1");
             showApp();
           } else {
-            if (err) err.textContent = "Invalid credentials. Use admin / ewb@mjcet2026";
+            if (err) err.textContent = "Invalid username or password. Please try again.";
           }
         }
       });
