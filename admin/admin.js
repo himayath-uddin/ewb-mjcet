@@ -25,7 +25,10 @@
 
   function assetUrl(value) {
     if (!value) return "";
-    return String(value).startsWith("public/") ? `../${value}` : value;
+    const str = String(value);
+    if (str.startsWith("public/")) return `/${str}`;
+    if (str.startsWith("../public/")) return `/${str.slice(3)}`;
+    return str;
   }
 
   /* ── UI Feedback & Toast Notifications ── */
