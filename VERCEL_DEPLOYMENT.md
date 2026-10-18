@@ -12,7 +12,8 @@ This project is fully configured for deployment on **Vercel** with production se
 3. Import your GitHub repository.
 4. In the project configuration:
    - **Framework Preset:** `Other`
-   - **Root Directory:** If deploying the full workspace, set Root Directory to `g-p-6abf9e417b5c8191b902f38c4c4a7a53` (or leave as `./` if uploading only that folder).
+   - **Root Directory:** Leave as `./` (Default root — all files are at the root of the repository)
+   - **Project Name:** Set to `ewb-mjcet` (or your preferred name)
 5. Click **"Deploy"**.
 
 ### Option B: Deploy via Vercel CLI
