@@ -766,6 +766,9 @@
           const email = usernameInput.includes("@") ? usernameInput : `${usernameInput}@ewbmjcet.org`;
 
           try {
+            if (firebase.auth.Auth && firebase.auth.Auth.Persistence) {
+              await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+            }
             await firebase.auth().signInWithEmailAndPassword(email, passwordInput);
             sessionStorage.setItem(LOGIN_KEY, "1");
             showApp();
@@ -885,21 +888,30 @@
       }
     });
 
-    // 8. Restore Session if logged in via Firebase Auth or sessionStorage
+    // 8. Strict Single-Session Authentication Guard
     if (typeof firebase !== "undefined" && firebase.auth) {
+      if (firebase.auth.Auth && firebase.auth.Auth.Persistence) {
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).catch(() => {});
+      }
       firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          sessionStorage.setItem(LOGIN_KEY, "1");
+        const hasActiveSession = sessionStorage.getItem(LOGIN_KEY) === "1";
+        if (user && hasActiveSession) {
           showApp();
-        } else if (sessionStorage.getItem(LOGIN_KEY) === "1") {
+        } else if (hasActiveSession) {
           showApp();
         } else {
+          // New session or closed session: strictly enforce login prompt
+          if (user) {
+            firebase.auth().signOut().catch(() => {});
+          }
+          sessionStorage.removeItem(LOGIN_KEY);
           updateBadgeCounts();
         }
       });
     } else if (sessionStorage.getItem(LOGIN_KEY) === "1") {
       showApp();
     } else {
+      sessionStorage.removeItem(LOGIN_KEY);
       updateBadgeCounts();
     }
 
