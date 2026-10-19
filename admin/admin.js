@@ -4,10 +4,27 @@
   let content = window.EWBContent.read(base);
   let activeSection = "overview";
   let isDirty = false;
-  let autoSyncEnabled = true;
+  let autoSyncEnabled = false;
   let broadcastDebounceTimer = null;
   let autoSaveDebounceTimer = null;
   let toastTimer = null;
+
+  // ── Strict Single-Session In-Memory Security ──
+  // Enforce in-memory authentication persistence so credentials NEVER persist to IndexedDB/localStorage
+  if (typeof firebase !== "undefined" && firebase.auth) {
+    try {
+      if (firebase.auth.Auth && firebase.auth.Auth.Persistence) {
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+      }
+    } catch (e) {}
+
+    // If this tab does not have an active login session, immediately force sign-out any cached user!
+    if (sessionStorage.getItem(LOGIN_KEY) !== "1") {
+      try {
+        firebase.auth().signOut().catch(() => {});
+      } catch (e) {}
+    }
+  }
 
   const $ = (selector, parent = document) => parent.querySelector(selector);
   const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
@@ -767,7 +784,7 @@
 
           try {
             if (firebase.auth.Auth && firebase.auth.Auth.Persistence) {
-              await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+              await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
             }
             await firebase.auth().signInWithEmailAndPassword(email, passwordInput);
             sessionStorage.setItem(LOGIN_KEY, "1");
@@ -864,9 +881,11 @@
       topbarSaveBtn.addEventListener("click", save);
     }
 
-    // 5. Auto-Sync Toggle
+    // 5. Auto-Sync Toggle (Defaulted to OFF)
     const autoSyncCheckbox = document.getElementById("auto-sync-toggle");
     if (autoSyncCheckbox) {
+      autoSyncCheckbox.checked = false;
+      autoSyncEnabled = false;
       autoSyncCheckbox.addEventListener("change", (e) => {
         autoSyncEnabled = e.target.checked;
         showToast(autoSyncEnabled ? "Real-time sync enabled" : "Real-time sync paused");
@@ -891,7 +910,7 @@
     // 8. Strict Single-Session Authentication Guard
     if (typeof firebase !== "undefined" && firebase.auth) {
       if (firebase.auth.Auth && firebase.auth.Auth.Persistence) {
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).catch(() => {});
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE).catch(() => {});
       }
       firebase.auth().onAuthStateChanged((user) => {
         const hasActiveSession = sessionStorage.getItem(LOGIN_KEY) === "1";
@@ -900,19 +919,17 @@
         } else if (hasActiveSession) {
           showApp();
         } else {
-          // New session or closed session: strictly enforce login prompt
+          // Strictly force sign-in for any new tab / session
           if (user) {
             firebase.auth().signOut().catch(() => {});
           }
-          sessionStorage.removeItem(LOGIN_KEY);
-          updateBadgeCounts();
+          showLogin();
         }
       });
     } else if (sessionStorage.getItem(LOGIN_KEY) === "1") {
       showApp();
     } else {
-      sessionStorage.removeItem(LOGIN_KEY);
-      updateBadgeCounts();
+      showLogin();
     }
 
     setupCursor();
@@ -923,8 +940,24 @@
     const appView = $("[data-admin-app]");
     if (loginView) loginView.hidden = true;
     if (appView) appView.hidden = false;
+
+    // Always ensure Real-time Sync is OFF by default when entering dashboard
+    autoSyncEnabled = false;
+    const autoSyncCheckbox = document.getElementById("auto-sync-toggle");
+    if (autoSyncCheckbox) autoSyncCheckbox.checked = false;
+    updateSyncStatus("Manual Save Mode", false);
+
     updateBadgeCounts();
     renderSection();
+  }
+
+  function showLogin() {
+    sessionStorage.removeItem(LOGIN_KEY);
+    const loginView = $("[data-login-view]");
+    const appView = $("[data-admin-app]");
+    if (loginView) loginView.hidden = false;
+    if (appView) appView.hidden = true;
+    updateBadgeCounts();
   }
 
   init();
